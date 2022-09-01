@@ -1,8 +1,11 @@
 package com.tuts.models;
 
+import lombok.ToString;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
+@ToString
 public class UserEntity implements java.io.Serializable {
 
   enum MaritalStatus {

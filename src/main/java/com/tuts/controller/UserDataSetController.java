@@ -4,15 +4,15 @@ import com.tuts.controller.mappings.UserAddressMappingClass;
 import com.tuts.models.AddressEntity;
 import com.tuts.models.UserEntity;
 import com.tuts.utils.Selectors;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/v1")
@@ -23,7 +23,7 @@ public class UserDataSetController {
     try {
       ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
       DataSet<UserEntity> userEntityDataSet = env.fromCollection(
-        Arrays.asList(new UserEntity("Kingsley", "Victor", LocalDate.of(1998, 10, 30), "SINGLE"))
+              List.of(new UserEntity("Kingsley", "Victor", LocalDate.of(1998, 10, 30), "SINGLE"))
       );
       return userEntityDataSet.collect();
     } catch (Exception exc) {

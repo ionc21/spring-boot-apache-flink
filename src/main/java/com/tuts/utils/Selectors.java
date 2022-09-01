@@ -10,16 +10,16 @@ public class Selectors {
   public static class IdKeySelectorUserEntity implements KeySelector<UserEntity, UUID> {
 
     @Override
-    public UUID getKey(UserEntity value) {
-      return value.id;
+    public UUID getKey(UserEntity userEntity) {
+      return userEntity.id;
     }
   }
 
   public static class IdKeySelectorAddressEntity implements KeySelector<AddressEntity, UUID> {
 
     @Override
-    public UUID getKey(AddressEntity value) {
-      return value.userId;
+    public UUID getKey(AddressEntity addressEntity) {
+      return addressEntity.userId;
     }
   }
 }
